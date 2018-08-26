@@ -1,5 +1,6 @@
 package rental_car;
 
+import java.util.Date;
 import java.util.Scanner;
 
 public class App {
@@ -48,6 +49,22 @@ public class App {
         car.setTransmition(transmicion.equalsIgnoreCase("AUTOMATICA") ?
                 Car.Transmicion.AUTHOMATIC: Car.Transmicion.MECHANIC);
         return car;
+    }
+    public RentalTransaction readTransaction(RentalTransaction rentalTransaction){
+        System.out.println("Ingrese el id de la transacción: ");
+        rentalTransaction.setId(scanner.nextLine());
+        rentalTransaction.setDate(new Date());
+        System.out.println("Ingrese la fecha de la salida del carro: ");
+        rentalTransaction.setPickUpDate(new Date(scanner.nextLine()));
+        System.out.println("Ingrese la fecha de regreso del carro: ");
+        rentalTransaction.setReturnDate(new Date(scanner.nextLine()));
+        System.out.println("Ingrese el número de horas: ");
+        rentalTransaction.setHours((int)(scanner.nextDouble()));
+        System.out.println("Ingrese el valor por hora: ");
+        rentalTransaction.setValuePerHour(scanner.nextDouble());
+        double totalValue = rentalTransaction.getHours() * rentalTransaction.getValuePerHour();
+        rentalTransaction.setTotalValue(totalValue);
+        return rentalTransaction;
     }
 
 }

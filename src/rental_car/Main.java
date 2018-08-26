@@ -34,22 +34,23 @@ public class Main {
             switch (opcion){
                 case 1:
                     sportCar = app.readCar(sportCar);
-                    sportCar.setStock(sportCar.getStock() - 1);
                     rentalTransaction.setCar(sportCar);
+                    sportCar.getCar();
                     break;
                 case 2:
                     familiarCar = app.readCar(familiarCar);
-                    familiarCar.setStock(familiarCar.getStock() - 1);
                     rentalTransaction.setCar(familiarCar);
+                    familiarCar.getCar();
                     break;
                 case 3:
                     standardCar = app.readCar(standardCar);
-                    standardCar.setStock(standardCar.getStock() - 1);
                     rentalTransaction.setCar(standardCar);
+                    standardCar.getCar();
                     break;
                 default:
                     break;
             }
+            rentalTransaction = app.readTransaction(rentalTransaction);
             // Rent operation
             System.out.println("Rent operation was successful");
         }

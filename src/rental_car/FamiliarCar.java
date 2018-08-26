@@ -1,14 +1,18 @@
 package rental_car;
 
 public class FamiliarCar extends Car{
+    private int stock = 3;
+    private final Ensurance FAMILIAR_CAR_ENSURANCE = Ensurance.ALL_RISK;
+    private final double FAMILIAR_CAR_VALUE_PER_HOUR = 123450.0;
+
     @Override
     protected Ensurance getEnsurance() {
-        return ensurance;
+        return FAMILIAR_CAR_ENSURANCE;
     }
 
     @Override
     protected double getValuePerHour() {
-        return valuePerHour;
+        return FAMILIAR_CAR_VALUE_PER_HOUR;
     }
 
     @Override
@@ -16,18 +20,20 @@ public class FamiliarCar extends Car{
         return stock;
     }
 
-    @Override
-    protected void setValuePerHour(double valuePerHour) {
-        this.valuePerHour = valuePerHour;
+    public void getCar() {
+        if (stock > 0) {
+            stock--;
+        }else{
+            System.out.println("No hay mas carros familiares diponibles");
+        }
     }
 
     @Override
-    protected void setEnsurance(Ensurance ensurance) {
-        this.ensurance = ensurance;
-    }
-
-    @Override
-    protected void setStock(int stock) {
-        this.stock = stock;
+    public String toString() {
+        return "FamiliarCar{" +
+                "stock=" + stock +
+                ", FAMILIAR_CAR_ENSURANCE=" + FAMILIAR_CAR_ENSURANCE +
+                ", FAMILIAR_CAR_VALUE_PER_HOUR=" + FAMILIAR_CAR_VALUE_PER_HOUR +
+                '}';
     }
 }

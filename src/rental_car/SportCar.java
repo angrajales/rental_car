@@ -1,15 +1,18 @@
 package rental_car;
 
-public class SportCar extends Car {
+public class SportCar extends Car{
+    private int stock = 2;
+    private final Ensurance SPORT_CAR_ENSURANCE = Ensurance.ALL_RISK;
+    private final double SPORT_CAR_VALUE_PER_HOUR = 200000.0;
 
     @Override
     protected Ensurance getEnsurance() {
-        return ensurance;
+        return SPORT_CAR_ENSURANCE;
     }
 
     @Override
     protected double getValuePerHour() {
-        return valuePerHour;
+        return SPORT_CAR_VALUE_PER_HOUR;
     }
 
     @Override
@@ -18,17 +21,20 @@ public class SportCar extends Car {
     }
 
     @Override
-    protected void setValuePerHour(double valuePerHour) {
-        this.valuePerHour = valuePerHour;
+    public void getCar() {
+        if(stock > 0){
+            stock--;
+        }else{
+            System.out.println("No hay mas carros deportivos disponibles");
+        }
     }
 
     @Override
-    protected void setEnsurance(Ensurance ensurance) {
-        this.ensurance = ensurance;
-    }
-
-    @Override
-    protected void setStock(int stock) {
-
+    public String toString() {
+        return "SportCar{" +
+                "stock=" + stock +
+                ", SPORT_CAR_ENSURANCE=" + SPORT_CAR_ENSURANCE +
+                ", SPORT_CAR_VALUE_PER_HOUR=" + SPORT_CAR_VALUE_PER_HOUR +
+                '}';
     }
 }

@@ -1,6 +1,6 @@
 package rental_car;
 
-public abstract class Car{
+public abstract class Car implements CarOperation{
     protected enum Transmicion{
         AUTHOMATIC,
         MECHANIC
@@ -14,16 +14,9 @@ public abstract class Car{
     protected String brand;
     protected String color;
     protected Transmicion transmition;
-    protected double valuePerHour;
-    protected Ensurance ensurance;
-    protected int stock;
     protected abstract Ensurance getEnsurance();
     protected abstract double getValuePerHour();
     protected abstract int getStock();
-    protected abstract void setValuePerHour(double valuePerHour);
-    protected abstract void setEnsurance(Ensurance ensurance);
-    protected abstract void setStock(int stock);
-
     public String getLicencePlate() {
         return licencePlate;
     }
