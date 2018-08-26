@@ -1,6 +1,7 @@
 package rental_car;
 
-public class FamiliarCar extends Car{
+public class SportCar extends Car {
+
     @Override
     protected Ensurance getEnsurance() {
         return ensurance;
@@ -28,6 +29,6 @@ public class FamiliarCar extends Car{
 
     @Override
     protected void setStock(int stock) {
-        this.stock = stock;
+
     }
 }

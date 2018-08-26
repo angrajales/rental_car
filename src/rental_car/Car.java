@@ -2,68 +2,65 @@ package rental_car;
 
 public abstract class Car{
     protected enum Transmicion{
-        AUTOMATICA,
-        MECANICA
+        AUTHOMATIC,
+        MECHANIC
     }
-    protected String placa;
-    protected double cilindraje;
-    protected String marca;
+    protected enum Ensurance{
+        ALL_RISK,
+        STANDARD
+    }
+    protected String licencePlate;
+    protected double displacement;
+    protected String brand;
     protected String color;
-    protected Transmicion transmicion;
+    protected Transmicion transmition;
+    protected double valuePerHour;
+    protected Ensurance ensurance;
+    protected int stock;
+    protected abstract Ensurance getEnsurance();
+    protected abstract double getValuePerHour();
+    protected abstract int getStock();
+    protected abstract void setValuePerHour(double valuePerHour);
+    protected abstract void setEnsurance(Ensurance ensurance);
+    protected abstract void setStock(int stock);
 
-    /**
-     * @return the placa
-     */
-    public String getPlaca() {
-        return placa;
+    public String getLicencePlate() {
+        return licencePlate;
     }
 
-    /**
-     * @param placa the placa to set
-     */
-    public void setPlaca(String placa) {
-        this.placa = placa;
+    public void setLicencePlate(String licencePlate) {
+        this.licencePlate = licencePlate;
     }
 
-    /**
-     * @return the cilindraje
-     */
-    public double getCilindraje() {
-        return cilindraje;
+    public double getDisplacement() {
+        return displacement;
     }
 
-    /**
-     * @param cilindraje the cilindraje to set
-     */
-    public void setCilindraje(double cilindraje) {
-        this.cilindraje = cilindraje;
+    public void setDisplacement(double displacement) {
+        this.displacement = displacement;
     }
 
-    /**
-     * @return the color
-     */
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
     public String getColor() {
         return color;
     }
 
-    /**
-     * @param color the color to set
-     */
     public void setColor(String color) {
         this.color = color;
     }
 
-    /**
-     * @return the transmicion
-     */
-    public Transmicion getTransmicion() {
-        return transmicion;
+    public Transmicion getTransmition() {
+        return transmition;
     }
-    
-    /**
-     * @param transmicion the transmicion to set
-     */
-    public void setTransmicion(Transmicion transmicion) {
-        this.transmicion = transmicion;
+
+    public void setTransmition(Transmicion transmition) {
+        this.transmition = transmition;
     }
 }

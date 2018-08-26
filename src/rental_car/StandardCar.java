@@ -1,6 +1,6 @@
 package rental_car;
 
-public class FamiliarCar extends Car{
+public class StandardCar extends Car{
     @Override
     protected Ensurance getEnsurance() {
         return ensurance;
