@@ -5,15 +5,12 @@ import java.util.Scanner;
 
 public class App {
     private static App app;
-    private Scanner scanner;
     private static final String MESSAGE = "Eliga una opción:" +
             "\n 0. Terminar aplicación" +
             "\n 1. Rentar un carro deportivo." +
             "\n 2. Rentar un carro familiar." +
             "\n 3. Rentar un carro estandar.";
-    private App(){
-        scanner = new Scanner(System.in);
-    }
+    private App(){ }
     public static App getInstance(){
         if(app == null){
             app = new App();
@@ -21,7 +18,7 @@ public class App {
         return app;
     }
 
-    public Customer readCustomer(Customer customer){
+    public Customer readCustomer(Customer customer, Scanner scanner){
         System.out.println("Ingrese el id:");
         customer.setId(scanner.nextLine());
         System.out.println("Ingrese el nombre:");
@@ -35,11 +32,12 @@ public class App {
         return customer;
     }
 
-    public Car readCar(Car car){
+    public Car readCar(Car car, Scanner scanner){
+        scanner = new Scanner(System.in);
         System.out.println("Ingrese la placa:");
         car.setLicencePlate(scanner.nextLine());
         System.out.println("Ingrese el cilindraje:");
-        car.setDisplacement(scanner.nextDouble());
+        car.setDisplacement(Double.parseDouble(scanner.nextLine()));
         System.out.println("Ingrese la marca:");
         car.setBrand(scanner.nextLine());
         System.out.println("Ingrese el color:");
@@ -50,7 +48,8 @@ public class App {
                 Car.Transmicion.AUTHOMATIC: Car.Transmicion.MECHANIC);
         return car;
     }
-    public RentalTransaction readTransaction(RentalTransaction rentalTransaction){
+    public RentalTransaction readTransaction(RentalTransaction rentalTransaction, Scanner scanner){
+        scanner = new Scanner(System.in);
         System.out.println("Ingrese el id de la transacción: ");
         rentalTransaction.setId(scanner.nextLine());
         rentalTransaction.setDate(new Date());
@@ -59,9 +58,9 @@ public class App {
         System.out.println("Ingrese la fecha de regreso del carro: ");
         rentalTransaction.setReturnDate(new Date(scanner.nextLine()));
         System.out.println("Ingrese el número de horas: ");
-        rentalTransaction.setHours((int)(scanner.nextDouble()));
+        rentalTransaction.setHours((int)(Double.parseDouble(scanner.nextLine())));
         System.out.println("Ingrese el valor por hora: ");
-        rentalTransaction.setValuePerHour(scanner.nextDouble());
+        rentalTransaction.setValuePerHour(Double.parseDouble(scanner.nextLine()));
         double totalValue = rentalTransaction.getHours() * rentalTransaction.getValuePerHour();
         rentalTransaction.setTotalValue(totalValue);
         return rentalTransaction;
