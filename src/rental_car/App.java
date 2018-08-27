@@ -5,11 +5,6 @@ import java.util.Scanner;
 
 public class App {
     private static App app;
-    private static final String MESSAGE = "Eliga una opción:" +
-            "\n 0. Terminar aplicación" +
-            "\n 1. Rentar un carro deportivo." +
-            "\n 2. Rentar un carro familiar." +
-            "\n 3. Rentar un carro estandar.";
     private App(){ }
     public static App getInstance(){
         if(app == null){
