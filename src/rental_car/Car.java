@@ -17,7 +17,7 @@ public abstract class Car implements CarOperation{
     protected abstract Ensurance getEnsurance();
     protected abstract double getValuePerHour();
     protected abstract int getStock();
-    public String getLicencePlate() {
+    protected String getLicencePlate() {
         return licencePlate;
     }
 
